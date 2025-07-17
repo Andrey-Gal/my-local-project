@@ -1,16 +1,21 @@
-const likeButton = document.getElementById('likeButton');
-const dislikeButton = document.getElementById('dislikeButton');
+const likeButton = document.getElementById('like');
+const dislikeButton = document.getElementById('dislike');
+let counter = 0;
 
-let likeCount = 0;
-let dislikeCount = 0;
+function updateText() {
+  likeButton.innerText = `Like(${counter})`;
+}
 
-likeButton.addEventListener('click', () => {
-  likeCount++;
-  likeButton.innerText = `Like (${likeCount})`;
+likeButton.addEventListener('click', function () {
+  counter++;
+  updateText();
 });
 
-dislikeButton.addEventListener('click', () => {
-  dislikeCount++;
-  dislikeButton.innerText = `Dislike (${dislikeCount})`;
+dislikeButton.addEventListener('click', function () {
+  if (counter > 0) {
+    counter--;
+    updateText();
+  }
 });
+
 
