@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <title>Like/Dislike</title>
-</head>
-<body>
-  <button id="like">Like(0)</button>
-  <button id="dislike">Dislike</button>
+  <link rel="stylesheet" href="style.css" />
+  
 
+</head>
+
+<body>
+
+  <div class="reaction-container">
+    <button id="likeBtn">👍 Like (<span id="likeCount">0</span>)</button>
+    <button id="dislikeBtn">👎 Dislike (<span id="dislikeCount">0</span>)</button>
+  </div>
+
+  <!-- 🔊 Аудио вставлено ДО script -->
+  <audio id="celebrationSound" src="sounds/celebration.mp3"></audio>
+
+  <!-- ✅ Скрипт подключен ПОСЛЕ всех элементов -->
   <script src="index.js"></script>
+
 </body>
 </html>
-
-
