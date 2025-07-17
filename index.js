@@ -1,7 +1,9 @@
-console.log('hello');
-
 const buttonNode = document.getElementById('button');
+let counter = 0;
 
-console.log(buttonNode);
+counter = counter + 1;
+buttonNode.innerText = counter;
 
-buttonNode.innerText = 'hello from javascript';
+buttonNode.addEventListener('click', () => {
+    alert('hello');
+});
