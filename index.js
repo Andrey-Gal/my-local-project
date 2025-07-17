@@ -1,7 +1,16 @@
-const buttonNode = document.getElementById('button');
-let counter = 0;
+const likeButton = document.getElementById('likeButton');
+const dislikeButton = document.getElementById('dislikeButton');
 
-buttonNode.addEventListener('click', () => {
-    counter = counter + 1;
-    buttonNode.innerText = counter;
+let likeCount = 0;
+let dislikeCount = 0;
+
+likeButton.addEventListener('click', () => {
+  likeCount++;
+  likeButton.innerText = `Like (${likeCount})`;
 });
+
+dislikeButton.addEventListener('click', () => {
+  dislikeCount++;
+  dislikeButton.innerText = `Dislike (${dislikeCount})`;
+});
+
