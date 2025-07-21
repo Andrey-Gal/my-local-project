@@ -1,34 +1,64 @@
-const likeButton = document.getElementById('likeBtn');
-const dislikeButton = document.getElementById('dislikeBtn');
-const likeCount = document.getElementById('likeCount');
-const dislikeCount = document.getElementById('dislikeCount');
-const celebrationSound = document.getElementById('celebrationSound');
+const appNode = document.getElementById('app');
 
-let likeCounter = 0;
-let dislikeCounter = 0;
+const menu1 = [
+    {
+        title: 'Фитнес-коктейли',
+        isNew: true
+    },
+    {
+        title: 'Смусси',
+        desc: 'Яркий микс свежих фруктов',
+        isNew: false
+    },
+    {
+        title: 'Хиты сезона',
+        isNew: false
+    }
+]
 
-likeButton.addEventListener('click', () => {
-  likeCounter++;
-  likeCount.textContent = likeCounter;
+const menu2 = [
+    {
+        title: 'Фитнес-коктейли',
+        isNew: true
+    },
+    {
+        title: 'Смусси',
+        desc: 'Яркий микс свежих фруктов',
+        isNew: false
+    }
+]
 
-  // 🎉 Воспроизведение звука и эффект при 10 лайках
-  if (likeCounter === 10) {
-    celebrationSound.currentTime = 0;
-    celebrationSound.play();
 
-    likeButton.style.boxShadow = '0 0 20px gold';
-    setTimeout(() => {
-      likeButton.style.boxShadow = '';
-    }, 500);
-  }
-});
+function createSectionHTML(section) {
+    let descHTML = ''
+    if (section.desc) {
+        descHTML = `<p>${section.desc}</p>`;
 
-dislikeButton.addEventListener('click', () => {
-  if (likeCounter > 0) {
-    likeCounter--;
-    likeCount.textContent = likeCounter;
-  }
+    }
 
-  dislikeCounter++;
-  dislikeCount.textContent = dislikeCounter;
-});
+    let isNewHTML = ''
+    if (section.isNew) {
+        isNewHTML = '<div>NEW</div>'
+    }
+
+    return `
+        <div>
+            ${isNewHTML}
+            <h2>${section.title}</h2>
+            ${descHTML}
+        </div>
+    `;
+}
+
+function render(sections) {
+    let html = ''
+    sections.forEach(section => {
+        html += createSectionHTML(section)
+    });
+
+    appNode.innerHTML = html
+}
+
+
+// вот запускается программа
+render(menu2)
