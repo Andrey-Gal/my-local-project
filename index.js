@@ -61,4 +61,4 @@ function render(sections) {
 
 
 // вот запускается программа
-render(menu2)
+render(menu1)
